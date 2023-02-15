@@ -1,6 +1,7 @@
 import { createGallery } from './create-card';
 import { MovieAPI } from './movie-api';
 import { watchedPagination } from './pagination-main';
+import { loadFromLS } from './modal-film-info';
 
 const refs = {
   btnWatchedEl: document.querySelector('.js-btn-watched'),
@@ -9,16 +10,16 @@ const refs = {
 
 let instance = new MovieAPI();
 
-const loadFromLS = key => {
-  console.log('key*', key);
-  try {
-    let filmState = localStorage.getItem(key);
-    console.log('filmState*', filmState);
-    return (filmState = JSON.parse(filmState) || undefined);
-  } catch (err) {
-    console.error('Get state error: ', err);
-  }
-};
+// const loadFromLS = key => {
+//   console.log('key*', key);
+//   try {
+//     let filmState = localStorage.getItem(key);
+//     console.log('filmState*', filmState);
+//     return (filmState = JSON.parse(filmState) || undefined);
+//   } catch (err) {
+//     console.error('Get state error: ', err);
+//   }
+// };
 
 const actionPage = document.querySelector('.menu__link-active');
 if (actionPage.dataset.action === 'library') {

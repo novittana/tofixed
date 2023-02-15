@@ -89,7 +89,7 @@ const saveToLS = (key, value) => {
   }
 };
 
-export const loadToLS = key => {
+export const loadFromLS = key => {
   try {
       const serializedState = localStorage.getItem(key);
       return serializedState === null ? [] : JSON.parse(serializedState);
@@ -101,8 +101,8 @@ export const loadToLS = key => {
 // localStorage.removeItem('filmWatched');
 // localStorage.removeItem('filmQueue');
 
-let arrFilmWatched = loadToLS('filmWatched');  
-let arrFilmQueue = loadToLS('filmQueue');
+let arrFilmWatched = loadFromLS('filmWatched');  
+let arrFilmQueue = loadFromLS('filmQueue');
 
 const onModalOpen =async e => {
   e.preventDefault(); 
