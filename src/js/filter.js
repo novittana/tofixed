@@ -10,10 +10,10 @@ const refs = {
 let instance = new MovieAPI();
 
 const loadFromLS = key => {
-  // console.log('key*', key);
+  console.log('key*', key);
   try {
     let filmState = localStorage.getItem(key);
-    // console.log('filmState*', filmState);
+    console.log('filmState*', filmState);
     return (filmState = JSON.parse(filmState) || undefined);
   } catch (err) {
     console.error('Get state error: ', err);
