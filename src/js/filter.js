@@ -9,12 +9,14 @@ const refs = {
 };
 
 let instance = new MovieAPI();
- let arrWatchedId = [];
- let arrQueueId = [];
+//  let arrWatchedId = [];
+//  let arrQueueId = [];
 
 const loadFromLS = key => {
+  // console.log('key*', key);
   try {
     let filmState = localStorage.getItem(key);
+    // console.log('filmState*', filmState);
     return (filmState = JSON.parse(filmState) || undefined);
   } catch (err) {
     console.error('Get state error: ', err);
@@ -45,16 +47,16 @@ function renderAllList() {
   if (loadFromLS('filmQueue')) {
     arrQueueId = loadFromLS('filmQueue');
   }
-  const arrAllFilmsId = [...arrWatchedId, ...arrQueueId];
-  if (arrWatchedId.length === 0 && arrQueueId.length === 0) {
-    showNothingInLibrary();
-  } else {
-    const films = arrAllFilmsId.map(id => instance.getFilmFullInfo(id));
-    Promise.all(films).then(response => {
-      watchedPagination(response);
-      createGallery(response);
-    });
-  }
+  // const arrAllFilmsId = [...arrWatchedId, ...arrQueueId];
+  // if (arrWatchedId.length === 0 && arrQueueId.length === 0) {
+  //   showNothingInLibrary();
+  // } else {
+  //   const films = arrAllFilmsId.map(id => instance.getFilmFullInfo(id));
+  //   Promise.all(films).then(response => {
+  //     watchedPagination(response);
+  //     createGallery(response);
+  //   });
+  // }
 }
 
 export function renderWatched() {
