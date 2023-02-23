@@ -9,17 +9,19 @@ const refs = {
 };
 
 let instance = new MovieAPI();
+ let arrWatchedId = [];
+ let arrQueueId = [];
 
-// const loadFromLS = key => {
-//   console.log('key*', key);
-//   try {
-//     let filmState = localStorage.getItem(key);
-//     console.log('filmState*', filmState);
-//     return (filmState = JSON.parse(filmState) || undefined);
-//   } catch (err) {
-//     console.error('Get state error: ', err);
-//   }
-// };
+const loadFromLS = key => {
+  console.log('key*', key);
+  try {
+    let filmState = localStorage.getItem(key);
+    console.log('filmState*', filmState);
+    return (filmState = JSON.parse(filmState) || undefined);
+  } catch (err) {
+    console.error('Get state error: ', err);
+  }
+};
 
 const actionPage = document.querySelector('.menu__link-active');
 if (actionPage.dataset.action === 'library') {
@@ -38,8 +40,7 @@ async function renderPageLibrary(event) {
 
 function renderAllList() {
   document.querySelector('.gallery__container .gallery__card-list').innerHTML ='';
-  let arrWatchedId = [];
-  let arrQueueId = [];
+ 
   if (loadFromLS('filmWatched')) {
     arrWatchedId = loadFromLS('filmWatched');
   }
