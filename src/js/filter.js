@@ -13,10 +13,8 @@ let instance = new MovieAPI();
  let arrQueueId = [];
 
 const loadFromLS = key => {
-  console.log('key*', key);
   try {
     let filmState = localStorage.getItem(key);
-    console.log('filmState*', filmState);
     return (filmState = JSON.parse(filmState) || undefined);
   } catch (err) {
     console.error('Get state error: ', err);
