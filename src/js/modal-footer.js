@@ -11,7 +11,6 @@ const refs = {
        refs. footerModalEl.classList.toggle('is-hidden');
     }
 
-
      document.addEventListener('keydown', function(e) {
        if (e.key === 'Escape') {
           toggleModal()
